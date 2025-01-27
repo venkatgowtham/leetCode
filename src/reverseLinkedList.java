@@ -1,10 +1,14 @@
+// https://leetcode.com/problems/reverse-linked-list/
 public class reverseLinkedList {
 
     public ListNode reverseList(ListNode head) {
         ListNode prev = null;
-        ListNode next = head.next;
+        ListNode next = null;
         ListNode current = head;
-
+        if(head != null)
+        {
+            next = head.next;
+        }
         while (current != null) {
             current.next = prev;
             prev = current;
