@@ -5,27 +5,23 @@ class Solution(object):
         :type t: str
         :rtype: bool
         """
+        if len(s) != len(t):
+            return False
+
         count = [0] * 26 
         ans = True
 
-        for c in s:
-            index = ord(c) - ord('a')
+        for c in range(len(s)):
+            index = ord(s[c]) - ord('a')
             count[index] += 1 
-
-        for c in t:
-            index = ord(c) - ord('a')
-            if count[index] > 0:
-                count[index] -= 1
-            else:
-                ans = False
+            index = ord(t[c]) - ord('a')
+            count[index] -= 1
+        
+        for val in count:
+            if val != 0:
                 return False
         
-        val = sum(count)
-
-        if val > 0:
-            return False
-        else:
-            return True
+        return True
         
 
 
